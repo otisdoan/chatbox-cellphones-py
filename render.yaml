@@ -10,3 +10,7 @@ services:
       - key: PIP_PREFER_BINARY
         value: "1"
       # Do not force only-binary; allow source builds as fallback on Render
+      - key: CARGO_HOME
+        value: "/tmp/cargo"
+      - key: RUSTUP_HOME
+        value: "/tmp/rustup"
