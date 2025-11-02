@@ -1,3 +1,5 @@
+--prefer-binary
+
 # FastAPI Core
 fastapi==0.109.0
 uvicorn[standard]==0.27.0
@@ -9,7 +11,7 @@ openai==1.12.0
 langchain==0.1.0
 sentence-transformers==2.3.1
 
-# Vector Database - FIX: Sử dụng phiên bản có pre-built wheels
+# Vector Database
 qdrant-client==1.7.3
 
 # HTTP Client
@@ -20,12 +22,3 @@ python-dotenv==1.0.0
 
 # Utilities
 python-multipart==0.0.6
-```
-
-## 🔧 Nếu vẫn lỗi, thêm vào Render:
-
-### **Cách 1: Environment Variables**
-Trong Render Dashboard → Environment:
-```
-CARGO_HOME=/tmp/cargo
-CARGO_TARGET_DIR=/tmp/cargo-target
