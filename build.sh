@@ -1,13 +1,15 @@
 #!/bin/bash
 set -e
 
-# Setup Cargo directories
-export CARGO_HOME=/tmp/cargo
-export CARGO_TARGET_DIR=/tmp/cargo-target
-mkdir -p $CARGO_HOME $CARGO_TARGET_DIR
-
 # Upgrade pip
 python -m pip install --upgrade pip
 
-# Install dependencies
-pip install --no-cache-dir -r requirements.txt
+# Set environment variables to prefer binary packages
+export PIP_PREFER_BINARY=1
+export PIP_ONLY_BINARY=":all:"
+
+# Install dependencies with explicit flags
+pip install --prefer-binary --only-binary=:all: -r requirements.txt || {
+    echo "Binary installation failed, trying without strict binary requirement..."
+    pip install --prefer-binary -r requirements.txt
+}
